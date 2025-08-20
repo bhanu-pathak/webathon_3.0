@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <body>
+    <header>
+        <style>
+            .navbar {
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-link {
+                position: relative;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: #3B82F6;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .mobile-menu {
+                transition: max-height 0.5s ease, opacity 0.4s ease;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+            }
+
+            .mobile-menu.open {
+                max-height: 500px;
+                opacity: 1;
+            }
+        </style>
+        </head>
+
+        <!-- Smooth Fixed Navbar -->
+        <nav class="navbar w-full bg-white z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <img class=" w-20" src="../images/logo.jpg">
+                        </div>
+                        <!-- <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                            <a href="#"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition duration-150">Home</a>
+                            <a href="#"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition duration-150">Features</a>
+                            <a href="#"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition duration-150">Pricing</a>
+                            <a href="#"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition duration-150">About</a>
+                            <a href="#"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition duration-150">Contact</a>
+                        </div> -->
+                    </div>
+
+                    <!-- Desktop buttons -->
+                   <a href="../pages/participateForm.html" type="button"
+                        class="text-white bg-blue-800 mt-5  hover:bg-blue-800 flex gap-2  items-center justify-between focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Join
+                        Tech Fest
+                        <svg class="h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+
+                    </a>
+                   
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-200">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition duration-150">Home</a>
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition duration-150">Features</a>
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition duration-150">Pricing</a>
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition duration-150">About</a>
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition duration-150">Contact</a>
+                </div>
+                <div class="pt-4 pb-3 border-t border-gray-200 px-4 space-y-3">
+                    
+                </div>
+            </div>
+        </nav>
+
+
+</body>
+<script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('open');
+
+        // Change icon
+        const icon = this.querySelector('i');
+        if (mobileMenu.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function (event) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('mobile-menu-button');
+
+        if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target) && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+            const icon = menuButton.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+</script>
+    <body class="font-inter">
+
+        <main>
+        <section class="w-full xl:py-24 lg:py-20 py-12 bg-slate-50 border-b border-gray-300">
+          <div class="w-full max-w-7xl px-6 lg:px-8 mx-auto">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-x-16 xl:gap-x-24 gap-y-14 max-w-lg md:max-w-3xl lg:max-w-full mx-auto">
+              <div>
+                <h1 class="font-manrope text-gray-900 md:text-5xl text-4xl font-bold leading-tight mb-8 lg:text-left text-center">Fill the Form</h1>
+                <p class="text-gray-900 text-lg font-normal leading-7 lg:text-left text-center">Fill your details.</p>
+                <img src="../images/logo.jpg" class="w-48 mt-5" alt="">
+               
+                
+              </div>
+              <form action="" class="h-fit bg-white border border-slate-200 rounded-2xl lg:p-12 p-8 w-full max-w-lg md:max-w-3xl lg:max-w-full mx-auto">
+                <div class="relative mb-8">
+                  <label class="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">Name </label>
+                  <div class="relative text-gray-500 focus-within:text-gray-900">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21C20 18.1716 20 16.7574 19.1213 15.8787C18.2426 15 16.8284 15 14 15H10C7.17157 15 5.75736 15 4.87868 15.8787C4 16.7574 4 18.1716 4 21M12.1441 11C12.0541 10.991 11.9459 10.991 11.8468 11C9.7027 10.9278 8 9.16911 8 7.00451C8 4.79481 9.78378 3 12 3C14.2072 3 16 4.79481 16 7.00451C15.991 9.16911 14.2883 10.9278 12.1441 11Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <input type="text" id="default-search" class="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="harsh">
+                  </div>
+                </div>
+                <div class="relative mb-8">
+                  <label class="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">Phone Number </label>
+                  <div class="relative text-gray-500 focus-within:text-gray-900">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <input type="text" id="default-search" class="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Enter Your Phone Number">
+                  </div>
+                </div>
+                <div class="relative mb-8">
+                  <label class="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">Course </label>
+                  <div class="relative text-gray-500 focus-within:text-gray-900">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <input type="text" id="default-search" class="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Enter Your Course">
+                  </div>
+                </div>
+                <div class="relative mb-8">
+                  <label class="flex  items-center mb-2 text-gray-600 text-base leading-6 font-medium">Student ID </label>
+                  <div class="relative text-gray-500 focus-within:text-gray-900">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.25201 7L8.15881 10.8953C10.2686 12.1612 11.3235 12.7941 12.4825 12.7665C13.6416 12.739 14.6652 12.0566 16.7124 10.6917L21.748 7M10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20Z" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <input type="text" id="default-search" class="w-full block h-12 pr-5 pl-12 py-2.5 text-lg leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Enter Your Student ID">
+                  </div>
+                </div>
+                
+                <button class="w-full h-12 rounded-full bg-slate-800 hover:bg-slate-900 transition-all duration-700 shadow-sm text-white text-base font-semibold leading-6 flex items-center justify-center">Submit <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+       <!-- FAQ -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Title -->
+  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+    <h2 class="text-2xl font-bold md:text-3xl md:leading-tight text-gray-800">
+      Frequently Asked Questions
+    </h2>
+  </div>
+  <!-- End Title -->
+
+  <div class="max-w-5xl mx-auto">
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 gap-6 md:gap-12">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          Can I cancel at anytime?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          Yes, you can cancel anytime no questions are asked while you cancel but we would highly appreciate if you will give us some feedback.
+        </p>
+      </div>
+      <!-- End Col -->
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          My team has credits. How do we use them?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          Once your team signs up for a subscription plan. This is where we sit down, grab a cup of coffee and dial in the details.
+        </p>
+      </div>
+      <!-- End Col -->
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          How does Preline's pricing work?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          Our subscriptions are tiered. Understanding the task at hand and ironing out the wrinkles is key.
+        </p>
+      </div>
+      <!-- End Col -->
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          How secure is Preline?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.
+        </p>
+      </div>
+      <!-- End Col -->
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          Do you offer discounts?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          We've built in discounts at each tier for teams. The time has come to bring those ideas and plans to life.
+        </p>
+      </div>
+      <!-- End Col -->
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">
+          What is your refund policy?
+        </h3>
+        <p class="mt-2 text-gray-600">
+          We offer refunds. We aim high at being focused on building relationships with our clients and community.
+        </p>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Grid -->
+  </div>
+</div>
+<!-- End FAQ -->
+
+ 
+<!-- End FAQ -->
+        </main>
+
+<footer class="flex flex-col items-center md:block w-[100%] max-w-[85re] py-10 px-4 sm:px-6 lg:px-8  bg-[#070e16]">
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
+    <div>
+      <a class="flex-none text-xl font-semibold text-white focus:outline-hidden" href="#" aria-label="Brand">
+        <img src="../images/logo.jpg" class="w-32">
+      </a>
+    </div>
+    <!-- End Col -->
+
+    <ul class="text-center w-full
+    ">
+      
+    </ul>
+    <!-- End Col -->
+
+    <!-- Social Brands -->
+    <div class="md:text-end space-x-2">
+      
+      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" href="#">
+        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+        </svg>
+      </a>
+      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" href="#">
+        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" href="#">
+        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z"/>
+        </svg>
+      </a>
+    </div>
+    <!-- End Social Brands -->
+  </div>
+  <!-- End Grid -->
+</footer>    
+     
+  </body>
+                                            
+</body>
+</html>
